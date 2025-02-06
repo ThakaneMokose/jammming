@@ -1,11 +1,12 @@
 import React from 'react';
 import Tracklist from '../Tracklist/Tracklist';
 
-export default function Playlist (){
+export default function Playlist (props){
     return (
         <div>
-            <h2>My playlist</h2>
-            <Tracklist/>
+            <input type='text' onChange={props.onNameChange}/>
+            <h2>{props.playlistName}</h2>
+            <Tracklist tracks={props.playlistTracks} />
             <button>Save to Spotify</button>
         </div>
     )

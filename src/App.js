@@ -6,7 +6,8 @@ import Playlist from './components/Playlist/Playlist';
 
 function App() {
 
-  const [results, setResults] = useState([
+  const [playlistName, setPlaylistName] = useState("Gym");
+  const [playlistTracks, setPlaylistTracks] = useState([
     {
       name: 'Cold Shoulder',
       artist: 'Someone',
@@ -26,6 +27,29 @@ function App() {
       id: 3
     }
   ])
+  const [results, setResults] = useState([
+    {
+      name:"Cold Showers",
+      artist:"Tia Gordon",
+      album:"Place Holder",
+      id:2
+    },
+    {
+      name:"Hymn for the Weekend",
+      artist:"Coldplay",
+      album:"A Head Full Of Dreams",
+      id:3
+    },
+    {
+      name:"So Cold",
+      artist:"Balu Brigada",
+      album:"Balu",
+      id:1
+    }
+  ]);
+  const handleChange=(e)=>{
+    setPlaylistName(e.target.value)
+  }
 
   return (
     <div className="App">
@@ -33,7 +57,7 @@ function App() {
         <h1>welcome to Jammming!</h1>
         <SearchBar/>
         <SearchResults results={results}/>
-        
+        <Playlist onNameChange={handleChange} playlistName={playlistName} playlistTracks={playlistTracks} />
         
       </header>
     </div>
