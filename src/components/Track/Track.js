@@ -1,18 +1,25 @@
 import React from 'react';
 
-export default function Track({addTrack, track}){
+export default function Track({removeTrack, addTrack, track, isPlaylist}){
+
+    const button=()=>{
+        if(isPlaylist){
+            return(
+                <button onClick={()=>removeTrack(track)} >-</button>
+            )
+        }else{
+            return(
+                <button onClick={()=>addTrack(track)} >+</button>
+            )
+        }
+    }
     return (
         <div>
             
             <h3>{track.name}</h3>
             <p> artist: {track.artist}</p>
             <p>album: {track.album}</p>
-            <button onClick={()=>addTrack(track)} >+</button>
+            {button()}
         </div>
     );
 }
-/*<h3>{props.track.name}</h3>
-            <p>
-                artist: {props.track.artist}
-                album: {props.track.album}
-            </p>*/

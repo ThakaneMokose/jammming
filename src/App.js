@@ -55,6 +55,15 @@ function App() {
       setPlaylistTracks(prev=>[...prev, track])
     }
   }
+  const removeTrack=(track)=>{
+    let newList=[];
+    playlistTracks.forEach((playlistTrack)=>{
+      if(playlistTrack.id !== track.id){
+        newList.push(playlistTrack)
+      }
+    })
+    setPlaylistTracks(newList);
+  }
 
   return (
     <div className="App">
@@ -62,7 +71,7 @@ function App() {
         <h1>welcome to Jammming!</h1>
         <SearchBar/>
         <SearchResults addTrack={addTrack} results={results}/>
-        <Playlist onNameChange={handleChange} playlistName={playlistName} playlistTracks={playlistTracks} />
+        <Playlist removeTrack={removeTrack} onNameChange={handleChange} playlistName={playlistName} playlistTracks={playlistTracks} />
         
       </header>
     </div>

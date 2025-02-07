@@ -6,7 +6,11 @@ export default function Playlist (props){
         <div>
             <input type='text' onChange={props.onNameChange}/>
             <h2>{props.playlistName}</h2>
-            <Tracklist tracks={props.playlistTracks} />
+            <Tracklist 
+                removeTrack={props.removeTrack} 
+                tracks={props.playlistTracks}
+                isPlaylist={true} 
+            />
             <button>Save to Spotify</button>
         </div>
     )
