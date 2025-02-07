@@ -32,23 +32,28 @@ function App() {
       name:"Cold Showers",
       artist:"Tia Gordon",
       album:"Place Holder",
-      id:2
+      id:4
     },
     {
       name:"Hymn for the Weekend",
       artist:"Coldplay",
       album:"A Head Full Of Dreams",
-      id:3
+      id:5
     },
     {
       name:"So Cold",
       artist:"Balu Brigada",
       album:"Balu",
-      id:1
+      id:6
     }
   ]);
   const handleChange=(e)=>{
     setPlaylistName(e.target.value)
+  }
+  const addTrack=(track)=>{
+    if(!playlistTracks.some(playlistTrack=> playlistTrack.id === track.id)){
+      setPlaylistTracks(prev=>[...prev, track])
+    }
   }
 
   return (
@@ -56,7 +61,7 @@ function App() {
       <header className="App-header">
         <h1>welcome to Jammming!</h1>
         <SearchBar/>
-        <SearchResults results={results}/>
+        <SearchResults addTrack={addTrack} results={results}/>
         <Playlist onNameChange={handleChange} playlistName={playlistName} playlistTracks={playlistTracks} />
         
       </header>
@@ -65,4 +70,3 @@ function App() {
 }
 
 export default App;
-/*<Playlist/>*/ //put under SearchResults component

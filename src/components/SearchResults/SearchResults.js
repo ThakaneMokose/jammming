@@ -5,7 +5,7 @@ export default function SearchResults (props){
     return (
         <div>
             <h2>Search results:</h2>
-            <Tracklist tracks={props.results}/>
+            <Tracklist addTrack={props.addTrack} tracks={props.results}/>
         </div>
     )
 }
