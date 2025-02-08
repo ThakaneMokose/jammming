@@ -4,8 +4,7 @@ import Tracklist from '../Tracklist/Tracklist';
 export default function Playlist (props){
     return (
         <div>
-            <input type='text' onChange={props.onNameChange}/>
-            <h2>{props.playlistName}</h2>
+            <input style={{color: "black"}} type='text' onChange={props.onNameChange} placeholder={props.playlistName} />
             <Tracklist 
                 removeTrack={props.removeTrack} 
                 tracks={props.playlistTracks}
