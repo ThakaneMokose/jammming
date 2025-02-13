@@ -10,7 +10,7 @@ export default function Playlist (props){
                 tracks={props.playlistTracks}
                 isPlaylist={true} 
             />
-            <button>Save to Spotify</button>
+            <button onClick={props.savePlaylist}>Save to Spotify</button>
         </div>
     )
 }

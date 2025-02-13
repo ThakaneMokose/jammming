@@ -61,8 +61,13 @@ function App() {
       if(playlistTrack.id !== track.id){
         newList.push(playlistTrack)
       }
-    })
+    });
     setPlaylistTracks(newList);
+  }
+  const savePlaylist=()=>{
+    const trackURIs=playlistTracks.map(track=>track.uri);
+    setPlaylistName("New Playlist");
+    setPlaylistTracks([]);
   }
 
   return (
@@ -71,7 +76,7 @@ function App() {
         <h1>welcome to Jammming!</h1>
         <SearchBar/>
         <SearchResults addTrack={addTrack} results={results}/>
-        <Playlist removeTrack={removeTrack} onNameChange={handleChange} playlistName={playlistName} playlistTracks={playlistTracks} />
+        <Playlist savePlaylist={savePlaylist} removeTrack={removeTrack} onNameChange={handleChange} playlistName={playlistName} playlistTracks={playlistTracks} />
         
       </header>
     </div>
