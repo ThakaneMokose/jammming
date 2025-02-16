@@ -3,6 +3,7 @@ import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
 import SearchResults from './components/SearchResults/SearchResults';
 import Playlist from './components/Playlist/Playlist';
+import Spotify from "./components/spotify";
 
 function App() {
 
@@ -69,6 +70,7 @@ function App() {
     setPlaylistName("New Playlist");
     setPlaylistTracks([]);
   }
+  console.log("Acces Token:", Spotify.getAccessToken())
 
   return (
     <div className="App">
@@ -81,6 +83,7 @@ function App() {
       </header>
     </div>
   );
+
 }
 
 export default App;
