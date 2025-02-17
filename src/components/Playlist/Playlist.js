@@ -2,7 +2,10 @@ import React from 'react';
 import Tracklist from '../Tracklist/Tracklist';
 
 export default function Playlist (props){
-    return (
+    const handleChange=(e)=>{
+        props.onNameChange(e.target.value);
+    }
+    return (  
         <div>
             <input style={{color: "black"}} type='text' onChange={props.onNameChange} placeholder={props.playlistName} />
             <Tracklist 
