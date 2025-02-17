@@ -48,14 +48,19 @@ function App() {
       id:6
     }
   ]);
+
   const handleChange=(e)=>{
     setPlaylistName(e.target.value)
-  }
+  };
+  const onSearch = (term) => {
+    Spotify.search(term).then(setResults)
+  };
+
   const addTrack=(track)=>{
     if(!playlistTracks.some(playlistTrack=> playlistTrack.id === track.id)){
       setPlaylistTracks(prev=>[...prev, track])
     }
-  }
+  };
   const removeTrack=(track)=>{
     let newList=[];
     playlistTracks.forEach((playlistTrack)=>{
@@ -64,26 +69,25 @@ function App() {
       }
     });
     setPlaylistTracks(newList);
-  }
+  };
   const savePlaylist=()=>{
     const trackURIs=playlistTracks.map(track=>track.uri);
     setPlaylistName("New Playlist");
     setPlaylistTracks([]);
-  }
-  console.log("Acces Token:", Spotify.getAccessToken())
+  };
+  console.log("Acces Token:", Spotify.getAccessToken());
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>welcome to Jammming!</h1>
-        <SearchBar/>
+        <SearchBar onSearch={onSearch} />
         <SearchResults addTrack={addTrack} results={results}/>
         <Playlist savePlaylist={savePlaylist} removeTrack={removeTrack} onNameChange={handleChange} playlistName={playlistName} playlistTracks={playlistTracks} />
         
       </header>
     </div>
   );
-
-}
+};
 
 export default App;
