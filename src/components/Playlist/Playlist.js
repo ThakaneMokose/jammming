@@ -7,7 +7,11 @@ export default function Playlist (props){
     }
     return (  
         <div>
-            <input style={{color: "black"}} type='text' onChange={props.onNameChange} placeholder={props.playlistName} />
+            <input 
+                style={{color: "black"}} 
+                type='text' 
+                onChange={handleChange} 
+                placeholder={props.playlistName} />
             <Tracklist 
                 removeTrack={props.removeTrack} 
                 tracks={props.playlistTracks}
